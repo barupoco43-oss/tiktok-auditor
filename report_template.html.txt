@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@page { size: A4 portrait; margin: 14mm 12mm 14mm 12mm; }
+body { font-family: Helvetica, Arial, sans-serif; color: #0f172a; line-height: 1.4; font-size: 8.5pt; }
+.header-table { width: 100%; border-bottom: 2px solid #0f172a; padding-bottom: 5px; margin-bottom: 10px; }
+.title { font-size: 15pt; font-weight: bold; color: #0f172a; }
+.metric-table { width: 100%; margin-bottom: 12px; }
+.metric-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 8px; text-align: center; }
+.metric-number { font-size: 15pt; font-weight: bold; color: #2563eb; }
+.badge { padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 7.5pt; }
+.section-title { font-size: 10pt; font-weight: bold; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 3px; margin-top: 10px; margin-bottom: 6px; }
+.cadence-box { background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; }
+.rate-box { background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 5px; padding: 8px 10px; margin-bottom: 6px; }
+.danger-box { background-color: #fef2f2; border-left: 3px solid #ef4444; padding: 5px 8px; margin-bottom: 4px; font-size: 8pt; }
+.card-box { background-color: #f8fafc; border-left: 3px solid #3b82f6; padding: 5px 8px; margin-bottom: 4px; font-size: 8pt; }
+.quote-box { background-color: #f1f5f9; border-left: 3px solid #64748b; padding: 5px 8px; margin-top: 3px; margin-bottom: 4px; font-style: italic; font-size: 8pt; }
+.footer-note { margin-top: 12px; text-align: center; font-size: 7pt; color: #94a3b8; border-top: 1px dashed #cbd5e1; padding-top: 5px; }
+</style>
+</head>
+<body>
+
+<table class="header-table">
+<tr>
+<td>
+<div class="title">TIKTOK SYSTEMIC DIAGNOSTIC & GROWTH ENGINE</div>
+<div style="font-size: 8pt; color: #64748b;">Audit Algoritma, Formula Ritme Konten, Live Streaming & Valuasi Ratecard</div>
+</td>
+<td style="text-align: right; vertical-align: bottom;">
+<div style="font-size: 7.5pt; color: #475569;">Target Akun: <b>{{TIKTOK_URL}}</b></div>
+</td>
+</tr>
+</table>
+
+<table class="metric-table">
+<tr>
+<td width="30%" style="padding-right: 4px;">
+<div class="metric-box">
+<div style="font-size: 6.5pt; color: #64748b; font-weight: bold;">KESEHATAN PROFIL</div>
+<div class="metric-number">{{HEALTH_SCORE}}<span style="font-size: 8.5pt; color: #94a3b8;">/100</span></div>
+</div>
+</td>
+<td width="35%" style="padding-right: 4px;">
+<div class="metric-box">
+<div style="font-size: 6.5pt; color: #64748b; font-weight: bold;">STATUS ALGORITMA</div>
+<div style="margin-top: 2px;"><span class="badge" style="background-color: {{BADGE_BG}}; color: {{BADGE_COLOR}};">{{SHADOWBAN_STATUS}}</span></div>
+</div>
+</td>
+<td width="35%">
+<div class="metric-box">
+<div style="font-size: 6.5pt; color: #64748b; font-weight: bold;">NICHE UTAMA</div>
+<div style="font-size: 8.5pt; font-weight: bold; color: #0f172a; margin-top: 2px;">{{PRIMARY_NICHE}}</div>
+</div>
+</td>
+</tr>
+</table>
+
+<div class="section-title">🧪 RESEP & FORMULA EKSEKUSI UP TRAFFIC</div>
+<div class="cadence-box">
+<table width="100%">
+<tr>
+<td width="50%" style="vertical-align: top; padding-right: 6px;">
+<b style="color: #1d4ed8; font-size: 9pt;">📹 Resep Video VT Harian:</b><br>
+• <b>Kuantitas Upload:</b> {{V_QTY}}<br>
+• <b>Durasi Optimal:</b> {{V_DUR}}<br>
+• <b>Jam Tayang Terbaik:</b> {{V_HOURS}}<br>
+• <b>Alasan Ritme:</b> <span style="font-size: 7.5pt; color: #475569;">{{V_REASON}}</span>
+</td>
+<td width="50%" style="vertical-align: top; padding-left: 6px; border-left: 1px dashed #bfdbfe;">
+<b style="color: #1d4ed8; font-size: 9pt;">🎙️ Resep Sesi Live Streaming:</b><br>
+• <b>Frekuensi Sesi:</b> {{L_FREQ}}<br>
+• <b>Rentang Durasi:</b> Min {{L_MIN}} s/d Max {{L_MAX}}<br>
+• <b>Jam Prime Time Live:</b> {{L_HOURS}}<br>
+• <b>Format Live:</b> <span style="font-size: 7.5pt; color: #475569;">{{LIVE_FORMAT}}</span>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="card-box">
+<b>Formula Hook (Detik 0 - 3):</b>
+<div class="quote-box">"{{HOOK_3S}}"</div>
+<b>Struktur Retensi:</b> {{RETENTION_STRUCT}}
+</div>
+
+<div class="section-title">🚨 PROTOKOL PEMULIHAN CEPAT (72 JAM)</div>
+<div class="danger-box"><b>Hari ke-1:</b> {{ACT1}}</div>
+<div class="danger-box"><b>Hari ke-2:</b> {{ACT2}}</div>
+<div class="danger-box"><b>Hari ke-3:</b> {{ACT3}}</div>
+
+<div class="section-title">⚠️ TEMUAN KEKURANGAN PROFIL & TRAFFIC KILLER</div>
+<table width="100%">
+<tr>
+<td width="50%" style="vertical-align: top; padding-right: 4px;">
+<div style="font-size: 8pt; font-weight: bold; margin-bottom: 3px;">Kelemahan Profil & Visual:</div>
+{{PROFIL_HTML}}
+</td>
+<td width="50%" style="vertical-align: top; padding-left: 4px;">
+<div style="font-size: 8pt; font-weight: bold; margin-bottom: 3px;">Pemicu Anjloknya Distribusi FYP:</div>
+{{KILLERS_HTML}}
+</td>
+</tr>
+</table>
+
+<div class="section-title">💰 PENILAIAN STANDAR RATECARD ENDORSEMENT</div>
+<div class="rate-box">
+<table width="100%">
+<tr>
+<td width="33%"><b>Video Feed (VT):</b><br><span style="color:#15803d; font-weight:bold;">{{RC_VT}}</span></td>
+<td width="33%"><b>Live / Jam:</b><br><span style="color:#15803d; font-weight:bold;">{{RC_LIVE}}</span></td>
+<td width="34%"><b>Paket Bundle:</b><br><span style="color:#15803d; font-weight:bold;">{{RC_BUNDLE}}</span></td>
+</tr>
+</table>
+<div style="font-size: 7.5pt; color: #475569; margin-top: 4px; border-top: 1px dashed #bbf7d0; padding-top: 3px;">
+<b>Brand-Fit Cocok:</b> {{RC_BRANDS}}<br>
+<b>Dasar Negosiasi:</b> {{RC_RATIONALE}}
+</div>
+</div>
+
+<div class="footer-note">
+Laporan dibuat otomatis dengan AI Multi-Modal Engine. Estimasi ratecard bersifat acuan standar pasar agensi kreator.
+</div>
+
+</body>
+</html>

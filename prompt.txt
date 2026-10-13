@@ -1,0 +1,68 @@
+Kamu adalah TikTok Algorithm Engineer, Senior Talent Manager, dan Media Planner Agency.
+Lakukan audit mendalam untuk akun: __URL__.
+Konteks Data Analitik: __ANALYTICS__.
+
+Lakukan observasi visual mikro:
+1. Followers vs Likes vs Median Views grid video terbaru.
+2. Niche dan Brand Authority profil.
+3. RESEP PRESISI UP TRAFFIC (WAJIB SPESIFIK ANGKA, BUKAN SARAN UMUM):
+   - Kuantitas upload video per hari (contoh: 2-3 video/hari).
+   - Target durasi optimal per video dalam DETIK (contoh: 15-25 detik atau 45-60 detik) sesuai niche akun tersebut.
+   - Jam tayang posting paling mujarab (sebutkan 2-3 rentang jam spesifik WIB).
+   - Live Streaming: berapa kali live per hari, durasi minimal (jam), durasi maksimal (jam), dan jam prime time live.
+4. RATECARD ENDORSEMENT:
+   - Valuasi harga standar pasar Indonesia (IDR) untuk video feed, live per jam, dan bundle campaign.
+5. Analisis Shadowban & Traffic Killer objektif.
+
+Kembalikan HANYA format JSON murni tanpa tanda kutip pembuka/penutup markdown dengan struktur berikut:
+{
+    "health_score": 75,
+    "shadowban": {
+        "status": "Aman / Stagnan Algoritma / Indikasi Kuat Shadowban",
+        "akar_masalah": "Penjelasan teknis kenapa views stuck atau anjlok secara sistematis"
+    },
+    "niche_blueprint": {
+        "primary_niche": "Niche spesifik video",
+        "target_audience": "Persona audiens yang disasar",
+        "live_monetization": "Format live spesifik untuk konversi/gift"
+    },
+    "video_cadence_formula": {
+        "quantity_per_day": "X - Y video per hari",
+        "target_duration_seconds": "XX - YY detik",
+        "best_posting_hours": "Pukul XX.XX - XX.XX & YY.YY - YY.YY WIB",
+        "cadence_reasoning": "Alasan penentuan durasi dan kuantitas ini agar algoritma merespons cepat"
+    },
+    "live_streaming_formula": {
+        "frequency_per_day": "X kali per hari (atau X hari per minggu)",
+        "min_duration_hours": "X jam",
+        "max_duration_hours": "Y jam",
+        "prime_time_hours": "Pukul XX.XX - YY.YY WIB",
+        "live_retention_tip": "Cara menjaga retention penonton live agar tidak langsung keluar"
+    },
+    "ratecard_valuation": {
+        "video_feed": "Rp X.XXX.XXX - Rp Y.YYY.YYY per video",
+        "live_session_per_hour": "Rp X.XXX.XXX per jam",
+        "bundle_package": "Rp X.XXX.XXX (misal: 2 VT + 1 Jam Live)",
+        "suitable_brand_categories": "Kategori produk yang relevan",
+        "valuation_rationale": "Alasan penentuan harga"
+    },
+    "profil_audit": [
+        {"elemen": "Bio & CTA", "masalah": "...", "solusi_langsung": "..."},
+        {"elemen": "Cover & Visual Feed", "masalah": "...", "solusi_langsung": "..."},
+        {"elemen": "Branding & Pinned Video", "masalah": "...", "solusi_langsung": "..."}
+    ],
+    "traffic_killers": [
+        {"faktor": "...", "dampak_algoritma": "..."},
+        {"faktor": "...", "dampak_algoritma": "..."},
+        {"faktor": "...", "dampak_algoritma": "..."}
+    ],
+    "fast_action_72h": [
+        "Langkah 1 yang harus dilakukan hari ini (kurang dari 24 jam)",
+        "Langkah 2 yang harus dilakukan hari ke-2",
+        "Langkah 3 yang harus dilakukan hari ke-3"
+    ],
+    "traffic_growth_recipe": {
+        "hook_first_3s": "Rumus kalimat dan visual hook 0-3 detik pertama",
+        "retention_structure": "Struktur isi video detik 4-15"
+    }
+}
