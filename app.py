@@ -191,7 +191,11 @@ if st.button("Jalankan Deep Diagnostic", type="primary", use_container_width=Tru
                 deep_prompt = raw_prompt.replace("__URL__", str(tiktok_url)).replace("__ANALYTICS__", analytics_context)
                 content_inputs.append(deep_prompt)
 
-                models_to_try = ["gemini-2.0-flash", "gemini-1.5-flash"]
+                models_to_try = [
+    "gemini-3.8-flash",
+    "gemini-3.5-flash",
+    "gemini-3.1-flash-lite"
+]
                 response = None
                 last_err = None
 
