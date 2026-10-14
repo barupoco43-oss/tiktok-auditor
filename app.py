@@ -8,12 +8,122 @@ from google.genai import types
 from xhtml2pdf import pisa
 
 st.set_page_config(
-    page_title="TikTok Systemic Auditor & Growth Engine",
+    page_title="TikTok Growth Engine & Auditor",
     page_icon="⚡",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
-# Generator PDF
+# Injeksi CSS Khusus Desain Mobile Modern & Aksen TikTok
+st.markdown("""
+<style>
+    /* Global Container */
+    .main {
+        background: linear-gradient(180deg, #0b0f19 0%, #111827 100%);
+        color: #f8fafc;
+    }
+    
+    /* Header Card */
+    .hero-container {
+        background: linear-gradient(135deg, rgba(254, 44, 85, 0.12) 0%, rgba(0, 242, 254, 0.12) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 20px 18px;
+        margin-bottom: 20px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 1.45rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #fe2c55, #00f2fe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 6px;
+    }
+    .hero-subtitle {
+        color: #94a3b8;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    /* Kartu Metrik Mobile */
+    .glass-card {
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 14px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    /* Highlight Formula Traffic */
+    .traffic-pill {
+        background: rgba(0, 242, 254, 0.08);
+        border-left: 3px solid #00f2fe;
+        border-radius: 0 8px 8px 0;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        color: #e2e8f0;
+    }
+    
+    .traffic-pill b {
+        color: #38bdf8;
+    }
+    
+    /* Live Formula */
+    .live-pill {
+        background: rgba(254, 44, 85, 0.08);
+        border-left: 3px solid #fe2c55;
+        border-radius: 0 8px 8px 0;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        color: #e2e8f0;
+    }
+    
+    .live-pill b {
+        color: #fb7185;
+    }
+
+    /* Fast Action Steps */
+    .action-step-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(244, 63, 94, 0.25);
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+        color: #fca5a5;
+    }
+
+    /* Tombol Streamlit Mobile */
+    .stButton>button {
+        background: linear-gradient(90deg, #fe2c55 0%, #ff0050 50%, #00f2fe 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 12px 24px !important;
+        font-size: 0.95rem !important;
+        box-shadow: 0 4px 15px rgba(254, 44, 85, 0.35) !important;
+        transition: all 0.3s ease !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Fungsi Generator PDF
 def generate_pdf_report(data, tiktok_url):
     status_text = data.get("shadowban", {}).get("status", "-")
     badge_bg = "#dcfce7" if "Aman" in status_text else ("#fee2e2" if "Shadowban" in status_text else "#fef3c7")
@@ -131,48 +241,53 @@ def generate_pdf_report(data, tiktok_url):
     pdf_buffer.seek(0)
     return pdf_buffer.getvalue()
 
-# Sidebar
+# Sidebar Pengaturan
+st.sidebar.markdown("### ⚙️ Pengaturan Mesin")
 api_key = st.sidebar.text_input(
     "Gemini API Key:", 
     type="password", 
-    help="Dapatkan di Google AI Studio (aistudio.google.com)"
+    help="Dapatkan dari Google AI Studio"
 )
-st.sidebar.markdown("---")
-st.sidebar.info("💡 **Tips Akurasi:**\nUnggah screenshot profil dan analitik Creator Tools agar audit presisi.")
+st.sidebar.caption("Gunakan API key yang valid untuk menjalankan engine analitik.")
 
-# Main Interface
-st.title("⚡ TikTok Deep Diagnostic & Growth Engine")
-st.caption("Bedah algoritma akun, resep kuantitas video & durasi, jadwal live streaming, dan ratecard endorsement.")
+# Hero Header Visual
+st.markdown("""
+<div class="hero-container">
+    <div style="font-size: 2rem; margin-bottom: 4px;">⚡ 📊</div>
+    <div class="hero-title">TikTok Diagnostic & Growth Engine</div>
+    <div class="hero-subtitle">Audit algoritma komprehensif, resep pemulihan traffic FYP, formula live, dan standar valuasi ratecard agensi.</div>
+</div>
+""", unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
-with col1:
-    tiktok_url = st.text_input("Link Profil TikTok:", placeholder="https://www.tiktok.com/@username")
-    profile_img = st.file_uploader(
-        "1. Screenshot Halaman Profil (Wajib):", 
-        type=["jpg", "jpeg", "png"],
-        help="Pastikan bio, follower, total like, dan views terlihat jelas."
-    )
-with col2:
-    st.write("")
-    st.write("")
-    analytics_img = st.file_uploader(
-        "2. Screenshot Analitik / Creator Tools (Opsional):", 
-        type=["jpg", "jpeg", "png"],
-        help="Unggah grafik views atau sumber traffic FYP."
-    )
+# Input Section Khusus Layar Ponsel
+st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+st.markdown("<div class='card-title'>🎯 Profil & Target Akun</div>", unsafe_allow_html=True)
+tiktok_url = st.text_input("Link Profil TikTok:", placeholder="https://www.tiktok.com/@username", label_visibility="collapsed")
 
-if st.button("Jalankan Deep Diagnostic", type="primary", use_container_width=True):
+profile_img = st.file_uploader(
+    "1. Screenshot Profil Akun (Wajib):", 
+    type=["jpg", "jpeg", "png"],
+    help="Pastikan bio, followers, total like, dan views video terlihat jelas."
+)
+
+analytics_img = st.file_uploader(
+    "2. Screenshot Creator Tools / FYP Traffic (Opsional):", 
+    type=["jpg", "jpeg", "png"],
+    help="Opsional tapi sangat direkomendasikan untuk akurasi analitik 100%."
+)
+st.markdown("</div>", unsafe_allow_html=True)
+
+if st.button("🚀 JALANKAN DEEP DIAGNOSTIC", use_container_width=True):
     if not api_key:
-        st.error("Silakan masukkan Gemini API Key terlebih dahulu di menu samping.")
+        st.error("Silakan masukkan Gemini API Key terlebih dahulu di menu samping (Sidebar).")
     elif not tiktok_url or not profile_img:
-        st.warning("Mohon cantumkan link akun dan unggah screenshot profil utama.")
+        st.warning("Mohon isi link akun dan unggah screenshot profil utama terlebih dahulu.")
     else:
         with st.spinner("Sedang membedah matriks engagement, ritme konten, dan valuasi ratecard..."):
             try:
-                # Baca prompt dari file prompt.txt
                 prompt_path = os.path.join(os.path.dirname(__file__), "prompt.txt")
                 if not os.path.exists(prompt_path):
-                    st.error("File prompt.txt tidak ditemukan di folder yang sama!")
+                    st.error("File prompt.txt tidak ditemukan di direktori!")
                     st.stop()
 
                 with open(prompt_path, "r", encoding="utf-8") as f:
@@ -192,10 +307,10 @@ if st.button("Jalankan Deep Diagnostic", type="primary", use_container_width=Tru
                 content_inputs.append(deep_prompt)
 
                 models_to_try = [
-    "gemini-3.8-flash",
-    "gemini-3.5-flash",
-    "gemini-3.1-flash-lite"
-]
+                    "gemini-3.8-flash",
+                    "gemini-3.5-flash",
+                    "gemini-3.1-flash-lite"
+                ]
                 response = None
                 last_err = None
 
@@ -219,109 +334,93 @@ if st.button("Jalankan Deep Diagnostic", type="primary", use_container_width=Tru
 
                 data = json.loads(response.text)
 
-                st.divider()
-
-                # Tombol Download PDF
-                st.subheader("📥 Download Dokumen Laporan")
+                # ================= 1. TOMBOL DOWNLOAD PDF (DI ATAS) =================
                 pdf_data = generate_pdf_report(data, tiktok_url)
                 if pdf_data:
                     username_clean = tiktok_url.replace("https://www.tiktok.com/@", "").replace("/", "").split("?")[0]
                     file_label = f"Audit_TikTok_{username_clean}.pdf" if username_clean else "Audit_TikTok_Report.pdf"
                     st.download_button(
-                        label="📄 KLIK DI SINI UNTUK DOWNLOAD LAPORAN PDF",
+                        label="📥 DOWNLOAD DOKUMEN LAPORAN LENGKAP (PDF)",
                         data=pdf_data,
                         file_name=file_label,
                         mime="application/pdf",
-                        type="primary",
                         use_container_width=True
                     )
-                else:
-                    st.warning("Pustaka PDF (xhtml2pdf) sedang terkendala rendering.")
 
-                st.divider()
-
-                # 1. Ringkasan Metrik
-                c_score, c_sb, c_niche = st.columns([1, 1.2, 1.2])
-                with c_score:
-                    st.metric("Skor Kesehatan Akun", f"{data['health_score']}/100")
-                    st.progress(data['health_score'] / 100)
+                # ================= 2. RINGKASAN METRIK =================
+                st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+                st.markdown("<div class='card-title'>📊 Ringkasan Diagnostik Akun</div>", unsafe_allow_html=True)
                 
-                with c_sb:
-                    st.metric("Status Algoritma", data['shadowban']['status'])
-                    st.caption(data['shadowban']['akar_masalah'])
+                col_score, col_stat = st.columns(2)
+                with col_score:
+                    st.metric("Skor Kesehatan", f"{data['health_score']}/100")
+                with col_stat:
+                    st.metric("Status Akun", data['shadowban']['status'])
+                
+                st.caption(f"**Akar Masalah:** {data['shadowban']['akar_masalah']}")
+                st.markdown(f"**Niche Terdeteksi:** `{data['niche_blueprint']['primary_niche']}`")
+                st.markdown("</div>", unsafe_allow_html=True)
 
-                with c_niche:
-                    st.metric("Niche Utama", data['niche_blueprint']['primary_niche'])
-                    st.caption(f"Target: {data['niche_blueprint']['target_audience']}")
+                # ================= 3. RESEP RITME TRAFFIC =================
+                st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+                st.markdown("<div class='card-title'>💊 Formula Obat Kuat Up Traffic</div>", unsafe_allow_html=True)
+                
+                v = data['video_cadence_formula']
+                st.markdown(f"""
+                <div class="traffic-pill">
+                    <b>📹 RESEP VIDEO VT HARIAN</b><br>
+                    • <b>Kuantitas Upload:</b> {v['quantity_per_day']}<br>
+                    • <b>Target Durasi Video:</b> {v['target_duration_seconds']}<br>
+                    • <b>Jam Tayang Optimal:</b> {v['best_posting_hours']}<br>
+                    <span style="font-size:0.75rem; color:#94a3b8;">{v['cadence_reasoning']}</span>
+                </div>
+                """, unsafe_allow_html=True)
 
-                st.divider()
+                l = data['live_streaming_formula']
+                st.markdown(f"""
+                <div class="live-pill">
+                    <b>🎙️ RESEP LIVE STREAMING</b><br>
+                    • <b>Frekuensi:</b> {l['frequency_per_day']}<br>
+                    • <b>Rentang Durasi:</b> Min {l['min_duration_hours']} s/d Max {l['max_duration_hours']}<br>
+                    • <b>Jam Prime Time:</b> {l['prime_time_hours']}<br>
+                    • <b>Kunci Retensi:</b> {l['live_retention_tip']}
+                </div>
+                """, unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
 
-                # 2. Resep Video & Live
-                st.subheader("💊 Obat Kuat Up Traffic (Formula Ritme & Durasi)")
-                col_v, col_l = st.columns(2)
-                with col_v:
-                    st.info(f"**📹 Resep Video VT Harian:**\n\n"
-                            f"• **Kuantitas Posting:** `{data['video_cadence_formula']['quantity_per_day']}`\n\n"
-                            f"• **Durasi Optimal:** `{data['video_cadence_formula']['target_duration_seconds']}`\n\n"
-                            f"• **Jam Upload Terbaik:** `{data['video_cadence_formula']['best_posting_hours']}`\n\n"
-                            f"• **Alasan:** {data['video_cadence_formula']['cadence_reasoning']}")
+                # ================= 4. PROTOKOL 72 JAM =================
+                st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+                st.markdown("<div class='card-title'>🚨 Protokol Pemulihan Cepat (72 Jam)</div>", unsafe_allow_html=True)
+                for idx, step in enumerate(data['fast_action_72h'][:3]):
+                    st.markdown(f"""
+                    <div class="action-step-card">
+                        <b>Hari ke-{idx+1}:</b> {step}
+                    </div>
+                    """, unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
 
-                with col_l:
-                    st.success(f"**🎙️ Resep Sesi Live Streaming:**\n\n"
-                               f"• **Frekuensi:** `{data['live_streaming_formula']['frequency_per_day']}`\n\n"
-                               f"• **Durasi:** Min **{data['live_streaming_formula']['min_duration_hours']}** — Max **{data['live_streaming_formula']['max_duration_hours']}**\n\n"
-                               f"• **Prime Time:** `{data['live_streaming_formula']['prime_time_hours']}`\n\n"
-                               f"• **Kunci Retensi:** {data['live_streaming_formula']['live_retention_tip']}")
+                # ================= 5. FORMULA HOOK =================
+                st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+                st.markdown("<div class='card-title'>🪝 Formula Hook & Struktur Retensi</div>", unsafe_allow_html=True)
+                st.info(f"**Hook 0-3 Detik Pertama:**\n\n> {data['traffic_growth_recipe']['hook_first_3s']}")
+                st.markdown(f"**Struktur Retensi:**\n\n{data['traffic_growth_recipe']['retention_structure']}")
+                st.markdown("</div>", unsafe_allow_html=True)
 
-                st.divider()
-
-                # 3. Protokol Darurat 72 Jam
-                st.subheader("🚨 Tindakan Darurat Cepat (Protokol Pemulihan 72 Jam)")
-                c1, c2, c3 = st.columns(3)
-                with c1:
-                    st.error(f"**Hari ke-1:**\n\n{data['fast_action_72h'][0]}")
-                with c2:
-                    st.warning(f"**Hari ke-2:**\n\n{data['fast_action_72h'][1]}")
-                with c3:
-                    st.info(f"**Hari ke-3:**\n\n{data['fast_action_72h'][2]}")
-
-                st.divider()
-
-                # 4. Audit Profil & Traffic Killers
-                col_kiri, col_kanan = st.columns(2)
-                with col_kiri:
-                    st.subheader("⚠️ Audit Kekurangan Profil & Visual")
-                    for item in data['profil_audit']:
-                        with st.expander(f"📌 {item['elemen']}", expanded=True):
-                            st.write(f"❌ **Kelemahan:** {item['masalah']}")
-                            st.write(f"✅ **Solusi Perbaikan:** {item['solusi_langsung']}")
-
-                with col_kanan:
-                    st.subheader("📉 Traffic Killer (Pemicu Drop Views)")
-                    for tk in data['traffic_killers']:
-                        st.warning(f"**Faktor:** {tk['faktor']}\n\n**Dampak:** {tk['dampak_algoritma']}")
-
-                st.divider()
-
-                # 5. Formula Hook
-                st.subheader("🧪 Cetak Biru Hook & Retensi Video")
-                st.info(f"**Formula Hook (3 Detik Pertama):**\n\n> {data['traffic_growth_recipe']['hook_first_3s']}\n\n"
-                        f"**Struktur Penahan Retensi:**\n\n{data['traffic_growth_recipe']['retention_structure']}")
-
-                st.divider()
-
-                # 6. Valuasi Ratecard (Paling Bawah)
-                st.subheader("💰 Standar Valuasi Ratecard Endorsement")
-                rc1, rc2, rc3 = st.columns(3)
-                with rc1:
-                    st.success(f"**Video Feed (VT):**\n\n### {data['ratecard_valuation']['video_feed']}")
-                with rc2:
-                    st.info(f"**Live Streaming (Per Jam):**\n\n### {data['ratecard_valuation']['live_session_per_hour']}")
-                with rc3:
-                    st.warning(f"**Paket Bundle Campaign:**\n\n### {data['ratecard_valuation']['bundle_package']}")
-
-                st.write(f"🛍️ **Kategori Brand Cocok:** `{data['ratecard_valuation']['suitable_brand_categories']}`")
-                st.caption(f"📌 **Dasar Valuasi Negosiasi:** {data['ratecard_valuation']['valuation_rationale']}")
+                # ================= 6. VALUASI RATECARD ENDORSEMENT =================
+                st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+                st.markdown("<div class='card-title'>💰 Standar Valuasi Ratecard Endorsement</div>", unsafe_allow_html=True)
+                rc = data['ratecard_valuation']
+                
+                c_rc1, c_rc2 = st.columns(2)
+                with c_rc1:
+                    st.success(f"**Video Feed (VT):**\n\n{rc['video_feed']}")
+                with c_rc2:
+                    st.info(f"**Live / Jam:**\n\n{rc['live_session_per_hour']}")
+                
+                st.warning(f"**Paket Bundle Campaign:** {rc['bundle_package']}")
+                st.markdown(f"🛍️ **Kategori Brand Cocok:** `{rc['suitable_brand_categories']}`")
+                st.caption(f"📌 **Dasar Valuasi:** {rc['valuation_rationale']}")
+                st.markdown("</div>", unsafe_allow_html=True)
 
             except Exception as e:
                 st.error(f"Gagal memproses analisis: {e}")
